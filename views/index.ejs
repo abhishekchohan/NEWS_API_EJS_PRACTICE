@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <div style="width: 50%; margin: 0 auto" class="container">
+        <h1>Select the country for your favourite news</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="sel1">Select list (select one):</label>
+                <select name="country" class="form-control" id="sel1">
+                    <option value="CU">Cuba</option>
+                    <option selected value="IN">India</option>
+                    <option value="AE">United Arab Emirates</option>
+                    <option value="GB">United Kingdom</option>
+                    <option value="US">United States</option>
+                </select>
+                <br />
+                <button type="submit" style="width: 95%;margin-left:2.5%" class="btn btn-lg btn-success">See
+                    news</button>
+            </div>
+        </form>
+    </div>
+    <% for(let i=0; i<newsList.length; i++) { %>
+    <div style="width: 50%;  margin: 0 auto;" class="jumbotron">
+        <h2 style="width: 95%;margin-left:2.5%" class="display-4"><%= newsList[i].title %></h2>
+        <p style="width: 95%;margin-left:2.5%" class="lead"><%= newsList[i].description %></p>
+        <hr class="my-4" />
+        <img style="width: 95%; height: 300px; margin-left:2.5%" src="<%= newsList[i].urlToImage %>" alt="img" />
+        <p style="width: 95%;margin-left:2.5%"><%= newsList[i].content %></p>
+        <h5 style="width: 95%;margin-left:2.5%">
+            <emp>Author: </emp> <%= newsList[i].author %>
+        </h5>
+        <a style="width: 95%;margin-left:2.5%" class="btn btn-primary btn-lg" href="<%= newsList[i].url %>"
+            target="_blank" role="button">Continue Reading the story</a>
+    </div>
+    <hr style="background-color: transparent; height: 1px; border: none;">
+    <% } %>
+</body>
+
+</html>
